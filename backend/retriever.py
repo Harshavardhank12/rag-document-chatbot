@@ -1,11 +1,11 @@
 import os
 import numpy as np
-from sentence_transformers import SentenceTransformer
 from groq import Groq
 import ingestor
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+# Reuse the embedding model already loaded by ingestor — loading a second
+# copy doubles memory and won't fit on a 512MB free-tier instance.
+model = ingestor.model
 
 def retrieve_answer(question: str):
     if not ingestor.chunks:
