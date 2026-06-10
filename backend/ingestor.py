@@ -10,24 +10,27 @@ chunks = []
 async def ingest_document(file):
     global chunks, index
     chunks = []
-
+    
     content = await file.read()
     with open("temp.pdf", "wb") as f:
         f.write(content)
-
+    
     with pdfplumber.open("temp.pdf") as pdf:
         for page in pdf.pages:
             text = page.extract_text()
             if text:
-                # Split into chunks of ~200 words
                 words = text.split()
                 for i in range(0, len(words), 200):
                     chunk = " ".join(words[i:i+200])
                     chunks.append(chunk)
-
-    # Embed and store in FAISS
+    
+    print(f"CHUNKS CREATED: {len(chunks)}")  # ADD THIS LINE
+    
     embeddings = model.encode(chunks)
     index = faiss.IndexFlatL2(384)
     index.add(np.array(embeddings).astype("float32"))
-
+    
+    print(f"INDEX BUILT: {index.ntotal} vectors")  # ADD THIS LINE
+    
     return f"Ingested {len(chunks)} chunks successfully"
+
