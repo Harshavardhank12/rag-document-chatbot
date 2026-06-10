@@ -1,19 +1,17 @@
+import { BookIcon, UserIcon } from "./Icons";
+
 export default function Message({ message }) {
   const isUser = message.role === "user";
+
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: isUser ? "flex-end" : "flex-start",
-      marginBottom: 10
-    }}>
-      <div style={{
-        background: isUser ? "#0070f3" : "#f0f0f0",
-        color: isUser ? "white" : "black",
-        padding: "8px 14px",
-        borderRadius: 16,
-        maxWidth: "70%"
-      }}>
-        {message.text}
+    <div className={`msg ${isUser ? "msg-user" : "msg-ai"}`}>
+      <div className="avatar">
+        {isUser ? <UserIcon size={14} /> : <BookIcon size={15} />}
+      </div>
+      <div className="msg-body">
+        <div className={`bubble ${message.error ? "error" : ""}`}>
+          {message.text}
+        </div>
       </div>
     </div>
   );

@@ -20,5 +20,5 @@ async def upload(file: UploadFile = File(...)):
 @app.post("/chat")
 async def chat(payload: dict):
     question = payload.get("question")
-    answer = retrieve_answer(question)
-    return {"answer": answer}
+    answer, sources = retrieve_answer(question)
+    return {"answer": answer, "sources": sources}

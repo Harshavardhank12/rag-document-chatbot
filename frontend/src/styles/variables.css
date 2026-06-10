@@ -1,0 +1,51 @@
+:root {
+  /* Palette — combinations of muted blues */
+  --bg: #f2f5f8;
+  --surface: #e9eef3;
+  --surface-2: #dfe6ed;
+  --card: #e8eef5;
+
+  --accent: #3f6488;
+  --accent-hover: #355778;
+  --accent-soft: #dce7f1;
+  --accent-softer: #e7eff6;
+
+  --accent2: #6b8cb3;
+  --accent2-soft: #e2eaf3;
+  --accent2-softer: #edf2f8;
+
+  --text: #243140;
+  --text-2: #5d6b7a;
+  --text-3: #97a4b2;
+
+  --border: rgba(36, 49, 64, 0.1);
+  --border-soft: rgba(36, 49, 64, 0.06);
+
+  --danger: #ab5a4d;
+  --danger-soft: #f3e8e6;
+
+  /* Shadows — soft, layered, never harsh */
+  --shadow-sm: 0 1px 2px rgba(36, 49, 64, 0.05), 0 1px 1px rgba(36, 49, 64, 0.03);
+  --shadow-md: 0 2px 8px rgba(36, 49, 64, 0.07), 0 1px 2px rgba(36, 49, 64, 0.04);
+  --shadow-lg: 0 12px 32px rgba(36, 49, 64, 0.11), 0 2px 8px rgba(36, 49, 64, 0.05);
+  --shadow-card: 0 4px 24px rgba(36, 49, 64, 0.08), 0 1px 3px rgba(36, 49, 64, 0.04);
+
+  /* Motion */
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --spring-soft: cubic-bezier(0.22, 1.2, 0.36, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Shape */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Type */
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+
+  /* Layout */
+  --sidebar-w: 268px;
+  --topbar-h: 56px;
+}
